@@ -1,0 +1,77 @@
+{% extends "snippets/layout.html" %}
+
+
+{% block header %}
+
+<div class="jumbotron jumbotron-fluid">
+  
+  {% include "background.html" %}
+
+  <!-- Back Button -->
+  <div class="box-form-back">
+    <a href="{{ url_for('index') }}">
+      <img style="width: 60px;" src="https://media.discordapp.net/attachments/798846408832712766/798846498112667658/Back_btn.png?width=363&height=473">
+    </a>
+  </div>
+
+  <div class="text-left box-form-regis">
+    <form method="POST">
+
+      <div class="form-row">
+        <div class="col">
+          <!-- Nama -->
+          <div class="form-group">
+            <label for="InputNama" class="text-input"><b>Nama</b></label>
+            <input type="text" class="form-control input input-short" id="InputNama" name="i_nama" required>
+          </div>
+        </div>
+        
+        <div class="col">
+          <!-- No. HP -->
+          <div class="form-group">
+            <label for="InputPhone" class="text-input"><b>Phone Number</b></label>
+            <input type="tel" class="form-control input input-short" id="InputPhone" name="i_tel" required>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Alamat -->
+      <div class="form-group">
+        <label for="InputAlamat" class="text-input"><b>Alamat</b></label>
+        <input type="text" class="form-control input input-long" id="InputAlamat" name="i_alamat" required>
+      </div>
+
+      <!-- TTL -->
+      <div class="form-group">
+        <label for="InputBirthday" class="text-input"><b>Tanggal Lahir</b></label>
+        <input type="date" class="form-control input input-long" id="InputBirthday" name="i_birthday" required>
+      </div>
+    
+      <!-- Email -->
+      <div class="form-group">
+        <label for="InputEmail" class="text-input"><b>Email</b></label>
+        <input type="email" class="form-control input input-long" id="InputEmail" name="i_email" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="InputPassword" class="text-input"><b>Password</b></label>
+        <input type="password" class="form-control input input-long" id="InputPassword" name="i_password" required>
+      </div>
+        
+      <!-- Register Button -->
+      <button class="btn btn-center" type="submit">
+        <img class="btn-manual" src="https://media.discordapp.net/attachments/798846408832712766/798846592605487154/Daftar_btn.png?width=1025&height=466">
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock header %}
+
+
+
+
+

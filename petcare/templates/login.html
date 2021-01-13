@@ -1,0 +1,49 @@
+{% extends "snippets/layout.html" %}
+
+
+{% block header %}
+
+<div class="jumbotron jumbotron-fluid">
+
+  {% include "background.html" %}
+  <div class="text-left box-form-login">
+    <form method="POST">
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="InputEmail" class="text-input"><b>Email</b></label>
+        <input type="email" class="form-control input" id="InputEmail" name="email">
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="InputPassword" class="text-input"><b>Password</b></label>
+        <input type="password" class="form-control input" id="InputPassword" name="password">
+
+        <!-- Lupa Password -->
+        <a href="#">
+          <img style="height: 20px;" class="text-input" src="https://media.discordapp.net/attachments/798846408832712766/798846499613311026/LupaPassword.png?width=1025&height=165">
+        </a>
+      </div>
+
+      <!-- Login Button -->
+      <button class="btn btn-center" type="submit">
+        <img class="btn-manual" src="https://media.discordapp.net/attachments/798846408832712766/798846542513045524/Login_btn.png?width=1025&height=466">
+      </button>
+      
+      <!-- Register -->
+      <div class="text-input">
+        <br>
+        <b>Tidak punya akun?</b>
+        <a href="{{ url_for('RegisPage') }}">
+          <img style="height: 30px;" class="text-input" src="https://media.discordapp.net/attachments/798846408832712766/798846541585580072/DaftarSekarang.png?width=1025&height=165">
+        </a>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock header %}
+
+

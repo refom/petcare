@@ -1,0 +1,88 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	font-size: 20
+}
+
+.jumbotron {
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+}
+
+.background {
+	height: 100vh;
+}
+
+.background-horizontal {
+	width: 98vw;
+}
+
+.box-feature {
+	position: absolute;
+	top: 50%;
+	left: 5%;
+}
+
+.box-logout {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+}
+
+.user-name {
+	position: absolute;
+	top: 6%;
+	left: 13%;
+}
+
+.user-font {
+	font-size: 3rem;
+	color: whitesmoke;
+}
+
+.box-form-login {
+	position: absolute;
+	top: 25%;
+	left: 60%;
+}
+
+.box-form-back {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+.box-form-regis {
+	position: absolute;
+	top: 10%;
+	left: 55%;
+}
+
+.input {
+	width: 25vw;
+	border-radius: 25px;
+	height: 50px;
+	border-width: 3px;
+}
+
+.input.input-long {
+	width: 32vw;
+}
+
+.input.input-short {
+	width: 15vw;
+}
+
+.text-input {
+	margin-left: 15px;
+}
+
+.btn-manual {
+	height: 50px;
+	cursor: pointer;
+}
+
+.btn-center {
+	position: relative;
+	left: 30%;
+}
