@@ -1,7 +1,7 @@
 {% extends "snippets/layout.html" %}
 
 
-{% block header %}
+{% block content %}
 
 <div class="jumbotron jumbotron-fluid">
 
@@ -18,7 +18,7 @@
 		<div class="row">
 			<!-- CHAT -->
 			<div class="col">
-				<a href="#">
+				<a href="{{ url_for('ChatMenu') }}">
 					<img style="width: 200px;" src="https://media.discordapp.net/attachments/798846408832712766/798846503761739806/Chat_btn.png">
 				</a>
 			</div>
@@ -49,6 +49,6 @@
 
 </div>
 
-{% endblock header %}
+{% endblock content %}
 
 

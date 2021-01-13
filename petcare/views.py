@@ -21,7 +21,7 @@ def Login():
 	try:
 		# CARI APAKAH ADA USERNYA
 		user_data = db.compare_user(email, password)[0]
-		user = User(user_data[1], user_data[4], user_data[5], user_data[6], user_data[2])
+		user = User(user_data[0], user_data[1], user_data[2], user_data[3], user_data[4], user_data[5], user_data[7])
 		
 		# KALAU SUDAH ADA YG LOGIN, PAKSA KELUAR TRUS LOGIN YG BARU
 		if user_login:
@@ -42,15 +42,12 @@ def RegisPage():
 @app.route("/regis", methods=['POST'])
 def Register():
 	try:
-		nama = request.form['i_nama']
-		phone = request.form['i_tel']
-		alamat = request.form['i_alamat']
-		birthday = request.form['i_birthday']
-		email = request.form['i_email']
-		password = request.form['i_password']
+		user = []
+		for nama in request.form:
+			user.append(request.form[nama])
 
 		# Insert ke database
-		db.insert_tb_user(nama, email, password, phone, alamat, birthday)
+		db.insert_tb_user(user)
 	except:
 		return redirect(request.url)
 
@@ -71,4 +68,17 @@ def Logout():
 	return redirect(url_for('index'))
 
 
+@app.route("/chat")
+def ChatMenu():
+	if not user_login:
+		return redirect(url_for('index'))
+	user = user_login[0]
+
+	# NGAMBIL LIST DOKTER
+	dokter = db.get_dokter()
+	nama_dokter = []
+	for dok in dokter:
+		nama_dokter.append(dok[1])
+
+	return render_template('chat_menu.html', user=user, dokter=nama_dokter)
 

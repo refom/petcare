@@ -17,6 +17,67 @@ body {
 	width: 98vw;
 }
 
+
+/* ====== FONT ===================================*/
+.user-font {
+	font-size: 3rem;
+	color: whitesmoke;
+}
+
+.user-name-font {
+	font-size: 2rem;
+	font-weight: bold;
+	color: white;
+}
+
+/* ============================================== */
+
+
+.chat-list {
+	background-color: #a65b96;
+	border-radius: 20vw;
+	width: 80vw;
+	height: 30vh;
+	margin-bottom: 2rem;
+}
+
+.user-pp {
+	width: 10%;
+}
+
+
+/* ===== BOX ATUR ATUR ==================================== */
+
+.box-chat-btn {
+	position: absolute;
+	top: 20%;
+	right: 20%;
+}
+
+.box-user-name {
+	position: absolute;
+	top: 15%;
+	left: 15%;
+}
+
+.box-right {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+}
+
+.box-user {
+	position: relative;
+	top: 20%;
+	left: 10%;
+}
+
+.box-chat-list {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+}
+
 .box-feature {
 	position: absolute;
 	top: 50%;
@@ -35,11 +96,6 @@ body {
 	left: 13%;
 }
 
-.user-font {
-	font-size: 3rem;
-	color: whitesmoke;
-}
-
 .box-form-login {
 	position: absolute;
 	top: 25%;
@@ -54,10 +110,14 @@ body {
 
 .box-form-regis {
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	left: 55%;
 }
 
+/* ============================================= */
+
+
+/* ===== ATUR FORM INPUT ========================== */
 .input {
 	width: 25vw;
 	border-radius: 25px;
@@ -77,8 +137,17 @@ body {
 	margin-left: 15px;
 }
 
+/* ============================================== */
+
+
+/* ======= BUTTON =============================== */
 .btn-manual {
 	height: 50px;
+	cursor: pointer;
+}
+
+.btn-manual-1 {
+	height: 10vh;
 	cursor: pointer;
 }
 
@@ -86,3 +155,4 @@ body {
 	position: relative;
 	left: 30%;
 }
+/* ============================================== */

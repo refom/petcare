@@ -10,22 +10,23 @@ class Database(object):
 			c = conn.cursor()
 			c.execute("""
 				CREATE TABLE IF NOT EXISTS user (
-					id INT PRIMARY KEY,
+					id INTEGER PRIMARY KEY AUTOINCREMENT,
 					name TEXT NOT NULL,
-					email TEXT NOT NULL UNIQUE,
-					password TEXT NOT NULL,
 					phone TEXT NOT NULL,
 					alamat TEXT NOT NULL,
-					birthday TEXT NOT NULL
+					birthday TEXT NOT NULL,
+					email TEXT NOT NULL UNIQUE,
+					password TEXT NOT NULL,
+					role TEXT NOT NULL
 					)
 			""")
 			conn.commit()
 	
-	def insert_tb_user(self, nama, email, password, phone, alamat, birthday):
+	def insert_tb_user(self, user_data):
 		with sqlite3.connect(self.db) as conn:
 			c = conn.cursor()
-			c.execute(""" INSERT INTO user(name, email, password, phone, alamat, birthday) VALUES (?, ?, ?, ?, ?, ?) """,
-				[(nama), (email), (password), (phone), (alamat), (birthday)]
+			c.execute(""" INSERT INTO user(name, phone, alamat, birthday, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?) """,
+				[(user_data[0]), (user_data[1]), (user_data[2]), (user_data[3]), (user_data[4]), (user_data[5]), (user_data[6])]
 			)
 			conn.commit()
 
@@ -38,6 +39,14 @@ class Database(object):
 			)
 			return c.fetchall()
 	
+	def get_dokter(self):
+		with sqlite3.connect(self.db) as conn:
+			c = conn.cursor()
+			c.execute("""
+				SELECT * FROM user WHERE role=2
+			""")
+			return c.fetchall()
+
 	def __str__(self):
 		return self.db
 	

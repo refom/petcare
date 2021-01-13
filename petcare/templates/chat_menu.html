@@ -1,0 +1,54 @@
+{% extends "snippets/layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+
+	<img class="background" src="https://media.discordapp.net/attachments/798846408832712766/798904217988235274/CHAT_BG.png?width=842&height=473">
+	
+	<!-- Back Button -->
+	<div class="box-form-back">
+		<a href="{{ url_for('Menu') }}">
+		  <img style="width: 60px;" src="https://media.discordapp.net/attachments/798846408832712766/798846498112667658/Back_btn.png?width=363&height=473">
+		</a>
+	</div>
+
+	<!-- OBJ DOKTER -->
+	{% if dokter %}
+		<div class="box-chat-list">
+			{% for nama in dokter %}
+				<div class="chat-list">
+					<div class="box-user">
+						<img class="user-pp" src="https://media.discordapp.net/attachments/798846408832712766/798914574048690176/Orank.png?width=473&height=473">
+						
+						<div class="user-name-font box-user-name">
+							<b>
+								{{ nama }}
+							</b>
+							<p style="margin-top: -1rem;">
+								<small>
+									Dokter Hewan
+								</small>
+							</p>
+						</div>
+
+						<!-- Tombol Chat -->
+						<div class="box-chat-btn">
+							<a href="#">
+								<img class="btn-manual-1" src="https://media.discordapp.net/attachments/798846408832712766/798927970126266398/Chat_btn2.png">
+							</a>
+						</div>
+					</div>
+
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+	<!-- SAMPE SINI -->
+
+</div>
+
+{% endblock content %}
+
+
