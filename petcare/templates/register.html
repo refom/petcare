@@ -1,7 +1,7 @@
 {% extends "snippets/layout.html" %}
 
 
-{% block header %}
+{% block content %}
 
 <div class="jumbotron jumbotron-fluid">
   
@@ -59,7 +59,16 @@
         <label for="InputPassword" class="text-input"><b>Password</b></label>
         <input type="password" class="form-control input input-long" id="InputPassword" name="i_password" required>
       </div>
-        
+
+      <!-- Dokter atau bukan -->
+      <div class="form-group">
+        <label for="InputRole" class="text-input" style="margin-right: 30px;"><b>Aku Adalah</b></label>
+        <select class="form-control input input-short custom-select" id="InputRole" name="i_role" required>
+          <option value="1" selected>Pelanggan</option>
+          <option value="2">Dokter</option>
+        </select>
+      </div>
+
       <!-- Register Button -->
       <button class="btn btn-center" type="submit">
         <img class="btn-manual" src="https://media.discordapp.net/attachments/798846408832712766/798846592605487154/Daftar_btn.png?width=1025&height=466">
@@ -69,7 +78,7 @@
   </div>
 </div>
 
-{% endblock header %}
+{% endblock content %}
 
 
 
