@@ -4,7 +4,7 @@
 
 <div class="jumbotron jumbotron-fluid">
   
-  {% include "background.html" %}
+  {% include "snippets/background.html" %}
 
   <!-- Back Button -->
   <div class="box-form-back">
@@ -21,7 +21,7 @@
           <!-- Nama -->
           <div class="form-group">
             <label for="InputNama" class="text-input"><b>Nama</b></label>
-            <input type="text" class="form-control input input-short" id="InputNama" name="i_nama" required>
+            <input type="text" class="form-control input input-short" id="InputNama" name="i_nama" placeholder="Masukkan Nama" required>
           </div>
         </div>
         
@@ -29,7 +29,7 @@
           <!-- No. HP -->
           <div class="form-group">
             <label for="InputPhone" class="text-input"><b>Phone Number</b></label>
-            <input type="tel" class="form-control input input-short" id="InputPhone" name="i_tel" required>
+            <input type="tel" class="form-control input input-short" id="InputPhone" name="i_tel" placeholder="Masukkan Nomor HP" required>
           </div>
         </div>
         
@@ -38,28 +38,28 @@
       <!-- Alamat -->
       <div class="form-group">
         <label for="InputAlamat" class="text-input"><b>Alamat</b></label>
-        <input type="text" class="form-control input input-long" id="InputAlamat" name="i_alamat" required>
+        <input type="text" class="form-control input input-long" id="InputAlamat" name="i_alamat" placeholder="Masukkan Alamat" required>
       </div>
 
       <!-- TTL -->
       <div class="form-group">
         <label for="InputBirthday" class="text-input"><b>Tanggal Lahir</b></label>
-        <input type="date" class="form-control input input-long" id="InputBirthday" name="i_birthday" required>
+        <input type="date" class="form-control input input-long" id="InputBirthday" name="i_birthday" placeholder="Masukkan Tanggal Lahir" required>
       </div>
     
       <!-- Email -->
       <div class="form-group">
         <label for="InputEmail" class="text-input"><b>Email</b></label>
-        <input type="email" class="form-control input input-long" id="InputEmail" name="i_email" required>
+        <input type="email" class="form-control input input-long" id="InputEmail" name="i_email" placeholder="Masukkan Email" required>
       </div>
 
       <!-- Password -->
       <div class="form-group">
         <label for="InputPassword" class="text-input"><b>Password</b></label>
-        <input type="password" class="form-control input input-long" id="InputPassword" name="i_password" required>
+        <input type="password" class="form-control input input-long" id="InputPassword" name="i_password" placeholder="Masukkan Password" required>
       </div>
 
-      <!-- Dokter atau bukan -->
+      <!-- Dokter atau Pelanggan -->
       <div class="form-group">
         <label for="InputRole" class="text-input" style="margin-right: 30px;"><b>Aku Adalah</b></label>
         <select class="form-control input input-short custom-select" id="InputRole" name="i_role" required>

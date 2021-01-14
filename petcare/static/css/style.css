@@ -1,58 +1,14 @@
+
+/* Import */
+@import url(background.css);
+@import url(box.css);
+@import url(font.css);
+@import url(form.css);
+
+
 body {
 	font-family: "Montserrat", sans-serif;
 	font-size: 20
-}
-
-.jumbotron {
-	background-color: white;
-	padding: 0px;
-	margin: 0px;
-}
-
-.background {
-	height: 100vh;
-}
-
-.background-horizontal {
-	width: 98vw;
-}
-
-
-/* ====== FONT ===================================*/
-.user-font {
-	font-size: 3rem;
-	color: whitesmoke;
-}
-
-.user-name-font {
-	font-size: 2rem;
-	font-weight: bold;
-	color: white;
-}
-
-.user-chat-font {
-	font-size: 1.5rem;
-	font-weight: bold;
-	color: black;
-}
-
-/* ============================================== */
-
-
-.chat-list {
-	background-color: #a65b96;
-	border-radius: 20vw;
-	width: 80vw;
-	height: 30vh;
-	margin-bottom: 2rem;
-}
-
-.chat-list.chat-background {
-	width: 58vw;
-	height: 70px;
-	padding: 10px;
-	padding-left: 55px;
-	margin-bottom: 0px;
 }
 
 .user-pp {
@@ -67,141 +23,6 @@ body {
 	border: 0px;
 }
 
-/* ===== BOX ATUR ATUR ==================================== */
-
-.box-btn-menu {
-	position: absolute;
-	top: 3%;
-	right: 2%;
-}
-
-.box-chat-name {
-	position: absolute;
-	top: 6%;
-	left: 20%;
-}
-
-.box-chat-pp {
-	position: absolute;
-	top: 6%;
-	left: 40%;
-}
-
-.box-type-chat {
-	position: absolute;
-	left: 20%;
-	bottom: 5%;
-}
-
-.box-chat-btn {
-	position: absolute;
-	top: 20%;
-	right: 20%;
-}
-
-.box-user-name {
-	position: absolute;
-	top: 15%;
-	left: 15%;
-}
-
-.box-right {
-	position: absolute;
-	top: 30%;
-	right: 10%;
-}
-
-.box-user {
-	position: relative;
-	top: 20%;
-	left: 10%;
-}
-
-.box-chat-list {
-	position: absolute;
-	top: 30%;
-	left: 10%;
-}
-
-.box-feature {
-	position: absolute;
-	top: 50%;
-	left: 5%;
-}
-
-.box-logout {
-	position: absolute;
-	bottom: 5%;
-	right: 5%;
-}
-
-.user-name {
-	position: absolute;
-	top: 6%;
-	left: 13%;
-}
-
-.box-form-login {
-	position: absolute;
-	top: 25%;
-	left: 60%;
-}
-
-.box-form-back {
-	position: absolute;
-	top: 0%;
-	left: 0%;
-}
-
-.box-form-regis {
-	position: absolute;
-	top: 5%;
-	left: 55%;
-}
-
-/* ============================================= */
 
 
-/* ===== ATUR FORM INPUT ========================== */
-.input {
-	width: 25vw;
-	border-radius: 25px;
-	height: 50px;
-	border-width: 3px;
-}
 
-.input.input-long {
-	width: 32vw;
-}
-
-.input.input-toolong {
-	width: 50vw;
-}
-
-.input.input-short {
-	width: 15vw;
-}
-
-.text-input {
-	margin-left: 15px;
-}
-
-/* ============================================== */
-
-
-/* ======= BUTTON =============================== */
-.btn-manual {
-	height: 50px;
-	cursor: pointer;
-}
-
-.btn-manual-1 {
-	height: 10vh;
-	cursor: pointer;
-}
-
-.btn-center {
-	position: relative;
-	left: 30%;
-}
-/* ============================================== */

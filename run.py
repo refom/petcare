@@ -1,5 +1,7 @@
+# run.py
+
 from petcare import app
 
-# buat ngejalanin programnya
+# buat menjalankan programnya
 if __name__ == '__main__':
 	app.run(debug=True)

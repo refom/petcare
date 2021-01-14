@@ -1,0 +1,17 @@
+
+/* Background Management */
+
+.jumbotron {
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+}
+
+.background {
+	height: 100vh;
+}
+
+.background-horizontal {
+	width: 98vw;
+}
+
