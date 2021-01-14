@@ -1,84 +1,109 @@
+# petcare/views.py
+
+# Import Flask
 from flask import render_template, url_for, request, redirect, flash
+
+# Import app petcare
 from petcare import app
-from petcare.database import Database
-from petcare.models import User
+from petcare.models import LoginForm, RegisForm, LoginSession, ChatForm
 
-db = Database()
-user_login = []
+login_session = LoginSession()
 
+# ============================= Sebelum Login
+# Halaman Login dan Halaman Default/Utama
 @app.route("/")
 def index():
-	if user_login:
-		return redirect(url_for('Menu'))
-	return render_template('login.html')
 
-@app.route("/", methods=['POST'])
-def Login():
-	# NGAMBIL DATA
-	email = request.form['email']
-	password = request.form['password']
-
-	try:
-		# CARI APAKAH ADA USERNYA
-		user_data = db.compare_user(email, password)[0]
-		user = User(user_data[0], user_data[1], user_data[2], user_data[3], user_data[4], user_data[5], user_data[7])
-		
-		# KALAU SUDAH ADA YG LOGIN, PAKSA KELUAR TRUS LOGIN YG BARU
-		if user_login:
-			user_login.clear()
-		user_login.append(user)
-
-	# KLO ADA ERROR YA GAK DIKASI MASUK
-	except:
-		print("gagal dapetin user")
-		return redirect(request.url)
-
+	# Periksa apakah sudah masuk atau belum
+	if login_session.check():
+		return render_template('login.html')
 	return redirect(url_for('Menu'))
 
+
+# Jika user mencoba Login
+@app.route("/", methods=['POST'])
+def Login():
+
+	login_form = LoginForm(request.form)
+
+	if login_form.validasi():
+		# Membuat objek user
+		user = login_form.make_obj()
+
+		# Menyimpan sesi login
+		login_session.set_user(user)
+		return redirect(url_for('Menu'))
+
+	# Jika ada error atau gagal login, akan tetap berada di halaman saat itu
+	return redirect(request.url)
+
+
+# Halaman Register
 @app.route("/regis")
 def RegisPage():
 	return render_template('register.html')
 
+
+# Jika user mencoba Register
 @app.route("/regis", methods=['POST'])
 def Register():
-	try:
-		user = []
-		for nama in request.form:
-			user.append(request.form[nama])
 
-		# Insert ke database
-		db.insert_tb_user(user)
-	except:
-		return redirect(request.url)
+	regis_form = RegisForm(request.form)
 
-	return render_template('regis_success.html')
+	# Register validasi
+	if regis_form.validasi():
+		return render_template('regis_success.html')
+	return redirect(request.url)
 
 
+# ============================= Setelah Login
+
+# Halaman Menu/Feature
 @app.route("/menu")
 def Menu():
-	if not user_login:
+	# Kalau user belum login, akan kembali ke Halaman default/login
+	if login_session.check():
 		return redirect(url_for('index'))
-	user = user_login[0]
+	user = login_session.get_user()
+
 	return render_template('menu.html', user=user)
 
+
+# Halaman untuk keluar
 @app.route("/logout")
 def Logout():
-	if user_login:
-		user_login.clear()
+	if not login_session.check():
+		login_session.set_user(None)
 	return redirect(url_for('index'))
 
 
+# Halaman menu chat | Menampilkan list dokter yang ada
 @app.route("/chat")
 def ChatMenu():
-	if not user_login:
+	# Kalau user belum login, akan kembali ke Halaman default/login
+	if login_session.check():
 		return redirect(url_for('index'))
-	user = user_login[0]
 
-	# NGAMBIL LIST DOKTER
-	dokter = db.get_dokter()
-	nama_dokter = []
-	for dok in dokter:
-		nama_dokter.append(dok[1])
+	# Mencari semua dokter lalu menyimpannya dalam class
+	ChatForm.find_all()
 
-	return render_template('chat_menu.html', user=user, dokter=nama_dokter)
+	# Mengambil list dokter
+	list_dokter = ChatForm.get_list_dokter()
+
+	return render_template('chat_menu.html', list_dokter=list_dokter)
+
+# Halaman chat | Terjadinya chat antara pelanggan dengan dokter
+@app.route("/chat/<idDokter>")
+def Chat(idDokter):
+	# Kalau user belum login, akan kembali ke Halaman default/login
+	if login_session.check():
+		return redirect(url_for('index'))
+
+	# Ambil objek dokter berdasarkan id
+	dokter = ChatForm.get_dokter_by_id(idDokter)
+
+	if dokter:
+		return render_template('chat.html', dokter=dokter)
+	return redirect(url_for('ChatMenu'))
+
 

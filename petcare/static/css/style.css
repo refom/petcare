@@ -30,6 +30,12 @@ body {
 	color: white;
 }
 
+.user-chat-font {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: black;
+}
+
 /* ============================================== */
 
 
@@ -41,12 +47,51 @@ body {
 	margin-bottom: 2rem;
 }
 
+.chat-list.chat-background {
+	width: 58vw;
+	height: 70px;
+	padding: 10px;
+	padding-left: 55px;
+	margin-bottom: 0px;
+}
+
 .user-pp {
 	width: 10%;
 }
 
+.user-pp-2 {
+	width: 15%;
+}
+
+.borderless {
+	border: 0px;
+}
 
 /* ===== BOX ATUR ATUR ==================================== */
+
+.box-btn-menu {
+	position: absolute;
+	top: 3%;
+	right: 2%;
+}
+
+.box-chat-name {
+	position: absolute;
+	top: 6%;
+	left: 20%;
+}
+
+.box-chat-pp {
+	position: absolute;
+	top: 6%;
+	left: 40%;
+}
+
+.box-type-chat {
+	position: absolute;
+	left: 20%;
+	bottom: 5%;
+}
 
 .box-chat-btn {
 	position: absolute;
@@ -127,6 +172,10 @@ body {
 
 .input.input-long {
 	width: 32vw;
+}
+
+.input.input-toolong {
+	width: 50vw;
 }
 
 .input.input-short {

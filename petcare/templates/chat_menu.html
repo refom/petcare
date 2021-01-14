@@ -15,16 +15,16 @@
 	</div>
 
 	<!-- OBJ DOKTER -->
-	{% if dokter %}
+	{% if list_dokter %}
 		<div class="box-chat-list">
-			{% for nama in dokter %}
+			{% for id, dokter in list_dokter.items() %}
 				<div class="chat-list">
 					<div class="box-user">
 						<img class="user-pp" src="https://media.discordapp.net/attachments/798846408832712766/798914574048690176/Orank.png?width=473&height=473">
 						
 						<div class="user-name-font box-user-name">
 							<b>
-								{{ nama }}
+								{{ dokter.name }}
 							</b>
 							<p style="margin-top: -1rem;">
 								<small>
@@ -35,7 +35,7 @@
 
 						<!-- Tombol Chat -->
 						<div class="box-chat-btn">
-							<a href="#">
+							<a href="{{ url_for('Chat', idDokter=id) }}">
 								<img class="btn-manual-1" src="https://media.discordapp.net/attachments/798846408832712766/798927970126266398/Chat_btn2.png">
 							</a>
 						</div>

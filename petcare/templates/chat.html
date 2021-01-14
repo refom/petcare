@@ -1,0 +1,56 @@
+{% extends "snippets/layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+
+	<img class="background" src="https://media.discordapp.net/attachments/798846408832712766/798904217988235274/CHAT_BG.png?width=842&height=473">
+	
+	<!-- Back Button -->
+	<div class="box-form-back">
+		<a href="{{ url_for('ChatMenu') }}">
+		  <img style="width: 60px;" src="https://media.discordapp.net/attachments/798846408832712766/798846498112667658/Back_btn.png?width=363&height=473">
+		</a>
+	</div>
+
+    <!-- Menu Button -->
+    <div class="box-btn-menu">
+        <a href="{{ url_for('Menu') }}">
+            <img style="width: 20vw;" src="https://media.discordapp.net/attachments/798846408832712766/799177009640505354/PetCare_btn.png?width=1025&height=318">
+        </a>
+    </div>
+
+	<!-- OBJ DOKTER -->
+    {% if dokter %}
+    <div class="box-chat-pp">
+        <img class="user-pp-2" src="https://media.discordapp.net/attachments/798846408832712766/798914574048690176/Orank.png?width=473&height=473">
+        <div class="box-chat-name user-chat-font">
+            <b>
+                {{ dokter.name }}
+                <p style="margin-top: -1rem; color: gray;">
+                    <small>
+                        Dokter Hewan
+                    </small>
+                </p>
+            </b>
+        </div>
+    </div>
+		<div class="box-type-chat">
+            <div class="chat-list chat-background">
+                <!-- Form input teks -->
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control input input-toolong borderless" id="InputChat">
+                    </div>
+                </form>
+            </div>
+		</div>
+	{% endif %}
+	<!-- SAMPE SINI -->
+
+</div>
+
+{% endblock content %}
+
+

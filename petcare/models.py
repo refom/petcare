@@ -1,31 +1,137 @@
+# petcare/models.py
+
+# Import Database dan Kelas user
+from petcare.database import Database
+from petcare.user import Pelanggan, Dokter
+
+# Import Abstrak Class
+from abc import ABC, abstractmethod
+
+# ================================== INTERFACE
+
+# Kelas Abstrak | Blueprint untuk Login dan Register
+class Form(ABC):
+
+	def __init__(self, req):
+		self.req = req
+
+	@abstractmethod
+	def validasi(self):
+		pass
+
+	@property
+	@abstractmethod
+	def req(self):
+		pass
 
 
+class LoginForm(Form):
 
-# USER OBJEK
-class User(object):
-	def __init__(self, id, nama, phone, alamat, ttl, email, role):
-		self.id = id
-		self.nama = nama
-		self.alamat = alamat
-		self.phone = phone
-		self.ttl = ttl
-		self.__email = email
-		self.__role = role
+	@Form.req.getter
+	def req(self):
+		return self.__req
+
+	@req.setter
+	def req(self, input):
+		self.__req = input
+
+	def validasi(self):
+		# Mengambil data yang di input user
+		email = self.req['email']
+		password = self.req['password']
+
+		try:
+			# Mencari apakah user ada di database dan data yg di input sama
+			user_data = Database.compare_user(email, password)[0]
+		except:
+			return False
+		# Jika user ada, simpan data sementara
+		self.user = user_data
+		return True
+
+	def make_obj(self):
+		# Pembuatan objek Pelanggan jika user adalah Pelanggan
+		if self.user[-1] == "1":
+			return Pelanggan(self.user[0], self.user[1], self.user[2], self.user[3], self.user[4], self.user[5])
+		
+		# Pembuatan objek Dokter jika user adalah Dokter
+		elif self.user[-1] == "2":
+			return Dokter(self.user[0], self.user[1], self.user[2], self.user[3], self.user[4], self.user[5])
+
+
+class RegisForm(Form):
+
+	@Form.req.getter
+	def req(self):
+		return self.__req
+
+	@req.setter
+	def req(self, input):
+		self.__req = input
+
+	def validasi(self):
+		# Mengambil data yang di input user
+		user_data = []
+		for nama in self.req:
+			user_data.append(self.req[nama])
+
+		try:
+			# Insert ke database
+			Database.insert_tb_user(user_data)
+		except:
+			return False
+		return True
+
+
+# Kelas Sesi
+class LoginSession(object):
 	
-	def set_email(self, email):
-		self.__email = email
+	def __init__(self):
+		self.__user = None
 
-	def get_email(self):
-		return self.__email
-	
-	def __str__(self):
-		return self.nama
 
-	def set_role(self, role):
-		self.__role = role
+	# Enkapsulasi | membuat atribut seperti method
+	def set_user(self, input):
+		self.__user = input
 	
-	def get_role(self):
-		return self.__role
+	def get_user(self):
+		return self.__user
+
+	# Cek apakah ada yang login atau tidak
+	def check(self):
+		if self.__user == None:
+			return True
+		return False
+
+
+# Chat Menu
+class ChatForm(object):
+	list_dokter = {}
+
+	@classmethod
+	def find_all(cls):
+		all_dokter = Database.get_all_dokter()
+
+		for data_dokter in all_dokter:
+			dokter = Dokter(data_dokter[0], data_dokter[1], data_dokter[2], data_dokter[3], data_dokter[4], data_dokter[5])
+			cls.list_dokter[dokter.id] = dokter
+
+	@classmethod
+	def get_list_dokter(cls):
+		return cls.list_dokter
+
+	@classmethod
+	def get_dokter_by_id(cls, idDokter):
+		try:
+			dokter = cls.list_dokter[int(idDokter)]
+		except:
+			return None
+		return dokter
+
+
+
+
+
 
 
 
