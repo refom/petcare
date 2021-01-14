@@ -1,0 +1,113 @@
+
+/* Box Management */
+
+
+.chat-list {
+	background-color: #a65b96;
+	border-radius: 20vw;
+	width: 80vw;
+	height: 30vh;
+	margin-bottom: 2rem;
+}
+
+.chat-list.chat-background {
+	width: 58vw;
+	height: 70px;
+	padding: 10px;
+	padding-left: 55px;
+	margin-bottom: 0px;
+}
+
+
+.box-btn-menu {
+	position: absolute;
+	top: 3%;
+	right: 2%;
+}
+
+.box-chat-name {
+	position: absolute;
+	top: 6%;
+	left: 20%;
+}
+
+.box-chat-pp {
+	position: absolute;
+	top: 6%;
+	left: 40%;
+}
+
+.box-type-chat {
+	position: absolute;
+	left: 20%;
+	bottom: 5%;
+}
+
+.box-chat-btn {
+	position: absolute;
+	top: 20%;
+	right: 20%;
+}
+
+.box-user-name {
+	position: absolute;
+	top: 15%;
+	left: 15%;
+}
+
+.box-right {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+}
+
+.box-user {
+	position: relative;
+	top: 20%;
+	left: 10%;
+}
+
+.box-chat-list {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+}
+
+.box-feature {
+	position: absolute;
+	top: 50%;
+	left: 5%;
+}
+
+.box-logout {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+}
+
+.user-name {
+	position: absolute;
+	top: 6%;
+	left: 13%;
+}
+
+.box-form-login {
+	position: absolute;
+	top: 25%;
+	left: 60%;
+}
+
+.box-form-back {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+}
+
+.box-form-regis {
+	position: absolute;
+	top: 5%;
+	left: 55%;
+}
+
+
+

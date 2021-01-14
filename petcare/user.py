@@ -1,7 +1,7 @@
 # petcare/user.py
 
 
-# Kelas Parent Orang
+# Kelas Parent | Orang
 class Orang(object):
 	def __init__(self, id, name, email, phone, alamat, birthday):
 		self.__id = id
@@ -21,10 +21,10 @@ class Orang(object):
 
 	def __str__(self):
 		return f"{self.name} is Default"
-	
+
 # ================================= INHERITANCE
 
-# Kelas Anak Dokter
+# Kelas Anak | Dokter
 class Dokter(Orang):
 	def __init__(self, id, name, email, phone, alamat, birthday):
 		super().__init__(id, name, email, phone, alamat, birthday)
@@ -35,7 +35,7 @@ class Dokter(Orang):
 		return f"{self.name} is {self.__role}"
 
 
-# Kelas Anak Pelanggan
+# Kelas Anak | Pelanggan
 class Pelanggan(Orang):
 
 	def __init__(self, id, name, email, phone, alamat, birthday):

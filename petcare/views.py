@@ -1,6 +1,6 @@
 # petcare/views.py
 
-# Import Flask
+# Import built-in Flask
 from flask import render_template, url_for, request, redirect, flash
 
 # Import app petcare
@@ -91,6 +91,7 @@ def ChatMenu():
 	list_dokter = ChatForm.get_list_dokter()
 
 	return render_template('chat_menu.html', list_dokter=list_dokter)
+
 
 # Halaman chat | Terjadinya chat antara pelanggan dengan dokter
 @app.route("/chat/<idDokter>")

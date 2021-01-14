@@ -1,3 +1,6 @@
+# petcare/database.py
+
+# import modul sqlite3
 import sqlite3
 
 # Kelas Database

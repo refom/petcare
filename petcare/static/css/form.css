@@ -1,0 +1,49 @@
+
+/* Form Management */
+
+/* ====================== Input */
+
+.input {
+	width: 25vw;
+	border-radius: 25px;
+	height: 50px;
+	border-width: 3px;
+}
+
+.input.input-long {
+	width: 32vw;
+}
+
+.input.input-toolong {
+	width: 50vw;
+}
+
+.input.input-short {
+	width: 15vw;
+}
+
+.text-input {
+	margin-left: 15px;
+}
+
+
+/* ====================== Button */
+
+.btn-manual {
+	height: 50px;
+	cursor: pointer;
+}
+
+.btn-manual-1 {
+	height: 10vh;
+	cursor: pointer;
+}
+
+.btn-center {
+	position: relative;
+	left: 30%;
+}
+
+
+
+

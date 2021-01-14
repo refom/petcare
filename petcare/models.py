@@ -19,12 +19,14 @@ class Form(ABC):
 	def validasi(self):
 		pass
 
+	# Property untuk membuat atribut menjadi seperti method
 	@property
 	@abstractmethod
 	def req(self):
 		pass
 
 
+# Login
 class LoginForm(Form):
 
 	@Form.req.getter
@@ -59,6 +61,7 @@ class LoginForm(Form):
 			return Dokter(self.user[0], self.user[1], self.user[2], self.user[3], self.user[4], self.user[5])
 
 
+# Register
 class RegisForm(Form):
 
 	@Form.req.getter
@@ -90,7 +93,7 @@ class LoginSession(object):
 		self.__user = None
 
 
-	# Enkapsulasi | membuat atribut seperti method
+	# Enkapsulasi
 	def set_user(self, input):
 		self.__user = input
 	
