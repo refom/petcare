@@ -26,6 +26,16 @@
 	margin-left: 15px;
 }
 
+.input-edit {
+	width: 17vw;
+	height: 60px;
+	border-radius: 50px;
+	border-width: 3px;
+}
+
+.input-edit.input-edit-long {
+	width: 35vw;
+}
 
 /* ====================== Button */
 

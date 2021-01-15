@@ -5,7 +5,7 @@ from flask import render_template, url_for, request, redirect, flash
 
 # Import app petcare
 from petcare import app
-from petcare.models import LoginForm, RegisForm, LoginSession, ChatForm
+from petcare.models import LoginForm, RegisForm, LoginSession, ChatForm, ProfileForm
 
 login_session = LoginSession()
 
@@ -106,5 +106,30 @@ def Chat(idDokter):
 	if dokter:
 		return render_template('chat.html', dokter=dokter)
 	return redirect(url_for('ChatMenu'))
+
+
+# Halaman Edit profile
+@app.route("/profile")
+def Profile():
+	# Kalau user belum login, akan kembali ke Halaman default/login
+	if login_session.check():
+		return redirect(url_for('index'))
+	user = login_session.get_user()
+
+	return render_template('profile.html', user=user)
+
+
+@app.route("/profile", methods=['POST'])
+def EditProfile():
+	edit = ProfileForm(request.form)
+	
+	user = login_session.get_user()
+	
+	if edit.update(user):
+		flash("Edit Successfully")
+	else:
+		flash("Edit Failed")
+
+	return redirect(request.url)
 
 

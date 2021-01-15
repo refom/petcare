@@ -7,11 +7,13 @@
 
 	<img class="background-horizontal" src="https://cdn.discordapp.com/attachments/712594014859296788/798840578128871465/HomepagePengguna.png">
 	
-	<div class="user-name">
-		<div class="user-font">
-			{{ user.name }}
+	<a href="{{ url_for('Profile') }}">
+		<div class="user-name">
+			<div class="user-font">
+				{{ user.name }}
+			</div>
 		</div>
-	</div>
+	</a>
 
 
 	<div class="box-feature">
@@ -45,7 +47,6 @@
 			<img style="width: 100px;" src="https://media.discordapp.net/attachments/798846408832712766/798880466421022770/Logout_btn.png?width=516&height=473">
 		</a>
 	</div>
-
 
 </div>
 

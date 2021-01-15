@@ -132,9 +132,27 @@ class ChatForm(object):
 		return dokter
 
 
+# Profile
+class ProfileForm(object):
+	
+	def __init__(self, req):
+		self.req = req
+	
+	def update(self, user):
+		nama = self.req['nama']
+		phone = self.req['phone']
+		alamat = self.req['alamat']
+		id = user.id
 
+		user.name = nama
+		user.phone = phone
+		user.alamat = alamat
 
-
+		try:
+			Database.update_user((nama, phone, alamat, id))
+		except:
+			return False
+		return True
 
 
 

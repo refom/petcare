@@ -11,6 +11,7 @@ class Database(object):
 
 
 	# Class Method biar hanya bisa diakses oleh Kelas, bukan Objek
+	# Membuat tabel user
 	@classmethod
 	def create_tb_user(cls):
 		with sqlite3.connect(cls.__db) as conn:
@@ -29,6 +30,7 @@ class Database(object):
 			""")
 			conn.commit()
 	
+	# Memasukkan data ke tabel user
 	@classmethod
 	def insert_tb_user(cls, user_data):
 		with sqlite3.connect(cls.__db) as conn:
@@ -36,10 +38,11 @@ class Database(object):
 			c.execute("""
 				INSERT INTO user(name, phone, alamat, birthday, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)
 				""",
-				[(data) for data in user_data]
+				(user_data)
 			)
 			conn.commit()
 
+	# Mencari apakah email dan password ada di database
 	@classmethod
 	def compare_user(cls, email, password):
 		with sqlite3.connect(cls.__db) as conn:
@@ -50,6 +53,7 @@ class Database(object):
 			)
 			return c.fetchall()
 	
+	# Mengambil semua user dengan role dokter/2
 	@classmethod
 	def get_all_dokter(cls):
 		with sqlite3.connect(cls.__db) as conn:
@@ -59,5 +63,13 @@ class Database(object):
 			""")
 			return c.fetchall()
 
+	@classmethod
+	def update_user(self, data):
+		with sqlite3.connect(self.__db) as conn:
+			c = conn.cursor()
+			c.execute("""
+				UPDATE user SET name=?, phone=?, alamat=? WHERE id=?
+			""", data)
+			conn.commit()
 
 
