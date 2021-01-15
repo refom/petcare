@@ -1,0 +1,122 @@
+{% extends "snippets/layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+
+	<img class="background-horizontal-2" src="https://media.discordapp.net/attachments/798846408832712766/799288340025180200/Profile_Edit.png?width=840&height=473">
+	
+	<!-- Back Button -->
+	<div class="box-form-back">
+		<a href="{{ url_for('Menu') }}">
+			<img style="width: 60px;" src="https://media.discordapp.net/attachments/798846408832712766/798846498112667658/Back_btn.png?width=363&height=473">
+		</a>
+	</div>
+
+	<!-- Logo -->
+    <div class="box-btn-menu">
+		<img style="width: 20vw;" src="https://media.discordapp.net/attachments/798846408832712766/799177009640505354/PetCare_btn.png?width=1025&height=318">
+    </div>
+
+	<div class="box-form-profile user-edit">
+		<div class="text-center mb-3">
+			<small>
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages %}
+							{{ message }}
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+			</small>
+		</div>
+		<form method="POST">
+			<div class="form-row">
+				<div class="col">
+					<!-- Nama -->
+					<div class="form-group">
+						<label for="InputNama" class="text-input"><b>Nama</b></label>
+						<input type="text" class="form-control input-edit" id="InputNama" name="nama" placeholder="Masukkan Nama" value="{{ user.name }}" disabled>
+					</div>
+				</div>
+				<div class="col">
+					<!-- No HP -->
+					<div class="form-group">
+						<label for="InputHP" class="text-input"><b>No. Handphone</b></label>
+						<input type="tel" class="form-control input-edit" id="InputHP" name="phone" placeholder="Masukkan No. HP" value="{{ user.phone }}" disabled>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Alamat -->
+			<div class="form-group">
+				<label for="InputAlamat" class="text-input"><b>Alamat</b></label>
+				<input type="text" class="form-control input-edit input-edit-long" id="InputAlamat" name="alamat" placeholder="Masukkan Alamat" value="{{ user.alamat }}" disabled>
+			</div>
+			
+			<div class="form-row">
+				<div class="col">
+					<!-- Tanggal Lahir -->
+					<div class="form-group">
+						<label for="InputBirthday" class="text-input"><b>Tanggal Lahir</b></label>
+						<input type="text" class="form-control input-edit" id="InputBirthday" value="{{ user.birthday }}" disabled>
+					</div>
+				</div>
+
+				<div class="col">
+					<!-- Role -->
+					<div class="form-group">
+						<label for="InputRole" class="text-input"><b>Sebagai</b></label>
+						<input type="text" class="form-control input-edit" id="InputRole" value="{{ user.get_role() }}" disabled>
+					</div>
+				</div>
+			</div>
+
+			<!-- Email -->
+			<div class="form-group">
+				<label for="InputEmail" class="text-input"><b>Email</b></label>
+				<input type="text" class="form-control input-edit input-edit-long" id="InputEmail" value="{{ user.email }}" disabled>
+			</div>
+
+			<div class="btn-center">
+				<button id="EditBtn" class="btn" type="button">
+					<img style="width: 30px;" src="https://media.discordapp.net/attachments/798846408832712766/799300980235042817/pen.png">
+				</button>
+
+				<button id="SaveBtn" class="btn" type="submit" style="display: none;">
+					<img class="btn-manual" src="https://media.discordapp.net/attachments/798846408832712766/798846592605487154/Daftar_btn.png?width=1025&height=466">
+				</button>
+			</div>
+
+		</form>
+		
+	</div>
+
+</div>
+
+<script>
+
+	var nama = document.getElementById("InputNama");
+	var phone = document.getElementById("InputHP");
+	var alamat = document.getElementById("InputAlamat");
+	var edit = document.getElementById("EditBtn");
+	var save = document.getElementById("SaveBtn");
+
+	edit.addEventListener('click', function(event){
+		nama.disabled = !nama.disabled;
+		phone.disabled = !phone.disabled;
+		alamat.disabled = !alamat.disabled;
+
+		if (save.style.display === "none") {
+			save.style.display = "inline-block";
+		} else {
+			save.style.display = "none";
+		}
+	});
+
+</script>
+
+{% endblock content %}
+
+

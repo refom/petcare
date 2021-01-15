@@ -11,6 +11,7 @@ class Orang(object):
 		self.alamat = alamat
 		self.birthday = birthday
 
+	# Atribut ID
 	@property
 	def id(self):
 		pass
@@ -19,8 +20,15 @@ class Orang(object):
 	def id(self):
 		return self.__id
 
-	def __str__(self):
-		return f"{self.name} is Default"
+	# Atribut Email
+	@property
+	def email(self):
+		pass
+
+	@email.getter
+	def email(self):
+		return self.__email
+
 
 # ================================= INHERITANCE
 
@@ -30,6 +38,9 @@ class Dokter(Orang):
 		super().__init__(id, name, email, phone, alamat, birthday)
 		self.__role = "Dokter"
 		self.jam_online = "00.00"
+
+	def get_role(self):
+		return self.__role
 
 	def __str__(self):
 		return f"{self.name} is {self.__role}"
@@ -41,19 +52,10 @@ class Pelanggan(Orang):
 	def __init__(self, id, name, email, phone, alamat, birthday):
 		super().__init__(id, name, email, phone, alamat, birthday)
 		self.__role = "Pelanggan"
-		self.__pet = []
+
+	def get_role(self):
+		return self.__role
 
 	def __str__(self):
 		return f"{self.name} is {self.__role}"
 
-	@property
-	def pet(self):
-		pass
-	
-	@pet.getter
-	def pet(self):
-		return self.pet
-	
-	@pet.setter
-	def pet(self, input):
-		self.__pet.append(input)

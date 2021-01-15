@@ -109,5 +109,14 @@
 	left: 55%;
 }
 
+.box-form-profile {
+	position: absolute;
+	top: 25%;
+	left: 35%;
+}
 
-
+.box-pencil {
+	position: absolute;
+	top: 80%;
+	left: 15%;
+}
