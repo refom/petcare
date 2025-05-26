@@ -63,6 +63,7 @@ class Database(object):
 			""")
 			return c.fetchall()
 
+	# Edit Profil
 	@classmethod
 	def update_user(self, data):
 		with sqlite3.connect(self.__db) as conn:
